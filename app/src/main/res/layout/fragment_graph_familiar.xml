@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/fondo_burbujas"
+        tools:context=".ui_familiar.graph.GraphFragment">
+
+        <!-- LinearLayout for Titles -->
+        <LinearLayout
+            android:id="@+id/LinearTitles1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="16dp">
+
+            <TextView
+                android:id="@+id/titleCorrectes1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Correctes"
+                android:textColor="@color/green"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginEnd="16dp"/>
+
+            <TextView
+                android:id="@+id/titleBarChart1"
+                android:layout_width="wrap_content"
+                android:textColor="@color/black"
+                android:layout_height="wrap_content"
+                android:text="Asociar Imatges"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginEnd="16dp"/>
+
+            <TextView
+                android:id="@+id/titleIncorrectes1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:text="Incorrectes"
+                android:textColor="@color/red"
+                android:textSize="18sp"
+                android:textStyle="bold"/>
+        </LinearLayout>
+
+        <com.github.mikephil.charting.charts.BarChart
+            android:id="@+id/barChart1"
+            android:layout_width="418dp"
+            android:layout_height="199dp"
+            app:layout_constraintBottom_toTopOf="@id/LinearTitles2"
+            app:layout_constraintEnd_toEndOf="parent"
+
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/LinearTitles1"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <LinearLayout
+            android:id="@+id/LinearTitles2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            app:layout_constraintTop_toBottomOf="@id/barChart1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="8dp">
+
+            <TextView
+                android:id="@+id/titleCorrectes2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Correctes"
+                android:textColor="@color/green"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginEnd="16dp"/>
+
+            <TextView
+                android:id="@+id/titleBarChart2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:text="Preguntes Personals"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginEnd="16dp"/>
+
+            <TextView
+                android:id="@+id/titleIncorrectes2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Incorrectes"
+                android:textColor="@color/red"
+                android:textSize="18sp"
+                android:textStyle="bold"/>
+        </LinearLayout>
+
+        <com.github.mikephil.charting.charts.BarChart
+            android:id="@+id/barChart2"
+            android:layout_width="418dp"
+            android:layout_height="199dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintBottom_toTopOf="@id/LinearTitles3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/LinearTitles2" />
+
+        <LinearLayout
+            android:id="@+id/LinearTitles3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            app:layout_constraintTop_toBottomOf="@id/barChart2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="8dp">
+
+            <TextView
+                android:id="@+id/titleCorrectes3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Correctes"
+                android:textColor="@color/green"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginEnd="16dp"/>
+
+            <TextView
+                android:id="@+id/titleBarChart3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:text="Calculs"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginEnd="16dp"/>
+
+            <TextView
+                android:id="@+id/titleIncorrectes3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Incorrectes"
+                android:textColor="@color/red"
+                android:textSize="18sp"
+                android:textStyle="bold"/>
+        </LinearLayout>
+
+        <com.github.mikephil.charting.charts.BarChart
+            android:id="@+id/barChart3"
+            android:layout_width="418dp"
+            android:layout_height="199dp"
+            app:layout_constraintTop_toBottomOf="@id/LinearTitles3"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginTop="16dp"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/nivell1"
+    android:background="@drawable/fondo_burbujas"
+    android:orientation="vertical">
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/prevenci"
+
+        android:textSize="36sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/btnPreguntesPersonals"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.363" />
+
+    <Button
+        android:id="@+id/btnPreguntesPersonals"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginBottom="44dp"
+        android:text="@string/preguntes_personals"
+        android:textSize="18dp"
+        app:layout_constraintBottom_toTopOf="@+id/btnMemoritzacio"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:background="@drawable/fondo_humo_pequeno"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <Button
+        android:id="@+id/btnMemoritzacio"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginBottom="28dp"
+        android:text="@string/memoritzacio"
+        android:background="@drawable/fondo_humo_pequeno"
+        android:textSize="18dp"
+        app:layout_constraintBottom_toTopOf="@+id/btnCalculs"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.921" />
+
+    <Button
+        android:id="@+id/btnCalculs"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:background="@drawable/fondo_humo_pequeno"
+        android:text="@string/calculs"
+        android:textSize="18dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.915" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

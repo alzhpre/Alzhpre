@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="btnPreguntesPersonals" type="id" />
+    <item name="btnMemoritzacio" type="id" />
+    <item name="btnCalculs" type="id" />
+    <item name="btnMemoria2" type="id" />
+    <item name="btnPensamentAbstracte" type="id" />
+    <item name="btnDenominacioImatges" type="id" />
+    <item name="btnInstruccionsMobils" type="id" />
+    <item name="user_name" type="id" />
+    <item name="Linear2" type="id" />
+    <item name="profile_image" type="id" />
+    <item name="tvFirstName" type="id" />
+    <item name="etFirstName" type="id" />
+    <item name="tvLastName" type="id" />
+    <item name="etLastName" type="id" />
+    <item name="tvBio" type="id" />
+    <item name="etBio" type="id" />
+    <item name="saveBtn" type="id" />
+    <item name="imagenPerfil" type="id" />
+</resources>

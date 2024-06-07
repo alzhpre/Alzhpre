@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:id="@+id/asociarimagenes_2"
+    tools:context=".nivell2.AsociarImagenesActivity"
+    android:background="@drawable/fondo_humo">
+
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:adjustViewBounds="true"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_launcher_background"
+        app:layout_constraintBottom_toTopOf="@+id/palabraTextView"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="16dp" />
+
+    <TextView
+        android:id="@+id/palabraTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:gravity="center"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.629" />
+
+    <LinearLayout
+        android:id="@+id/Linear1"
+        android:layout_width="365dp"
+        android:layout_height="54dp"
+        android:layout_marginBottom="172dp"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/palabraTextView"
+        app:layout_constraintVertical_bias="0.0">
+
+        <Button
+            android:id="@+id/opcion1Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/azul_cielo"
+            android:textColor="@color/black"
+            android:text="Opción 1" />
+
+        <Button
+            android:id="@+id/opcion2Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:background="@color/azul_cielo"
+            android:textColor="@color/black"
+            android:text="Opción 2" />
+
+        <Button
+            android:id="@+id/opcion3Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:background="@color/azul_cielo"
+            android:textColor="@color/black"
+            android:text="Opción 3" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@id/Linear2"
+        android:layout_width="378dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="28dp"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/Linear1"
+        app:layout_constraintVertical_bias="0.0">
+
+        <Button
+            android:id="@+id/opcion4Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:background="@color/azul_cielo"
+            android:textColor="@color/black"
+            android:text="Opción 4" />
+
+        <Button
+            android:id="@+id/opcion5Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:background="@color/azul_cielo"
+            android:textColor="@color/black"
+            android:text="Opción 5" />
+
+        <Button
+            android:id="@+id/opcion6Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:background="@color/azul_cielo"
+            android:textColor="@color/black"
+            android:text="Opción 6" />
+    </LinearLayout>
+
+    <LinearLayout
+
+        android:id="@+id/Linear3"
+        android:layout_width="378dp"
+        android:layout_height="56dp"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Linear2"
+        app:layout_constraintVertical_bias="0.333">
+
+        <Button
+            android:id="@+id/opcion7Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:background="@color/azul_cielo"
+            android:textColor="@color/black"
+            android:text="Opción 7" />
+
+        <Button
+            android:id="@+id/opcion8Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:background="@color/azul_cielo"
+            android:textColor="@color/black"
+            android:text="Opción 8" />
+
+        <Button
+            android:id="@+id/opcion9Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:background="@color/azul_cielo"
+            android:textColor="@color/black"
+            android:text="Opción 9" />
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

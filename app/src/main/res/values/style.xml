@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/azul_cielo</item>
+        <item name="colorPrimaryDark">@color/azul_cielo</item>
+        <item name="colorAccent">@color/black</item>
+    </style>
+
+    <style name="SplashTheme" parent = "AppTheme">
+        <item name="android:windowBackground">@drawable/splashscreen</item>
+    </style>
+
+    <style name="TextoAzulCielo">
+        <item name="android:textColor">@color/azul_cielo</item>
+    </style>
+
+    <style name="FondoRosa">
+        <item name="android:background">@color/rosa</item>
+    </style>
+
+    <style name="FondoMorado">
+        <item name="android:background">@color/morado</item>
+    </style>
+
+    <style name="FullScreenDialog" parent="Theme.AppCompat.Light.Dialog">
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+
+</resources>

@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"
+        android:maxSdkVersion="32" />
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        tools:targetApi="31">
+        <activity
+            android:name=".SignInActivity"
+            android:exported="true"
+            android:theme="@style/AppTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+            <activity
+                android:name=".nivell1.AsociarImagenesActivity"
+                android:exported="true"/>
+            <activity
+            android:name=".FamilySignUpActivity"
+            android:exported="true"/>
+        <activity android:name=".FamilyPrincipalActivity"
+            android:exported="true"/>
+        <activity android:name=".FamilySignInActivity"
+            android:exported="true"/>
+        <activity
+            android:name=".PantallaPrincipalFamiliarActivity"
+            android:exported="true"/>
+        <activity
+            android:name=".QuestionsActivity"
+            android:exported="true"/>
+            <activity
+                android:name=".nivell1.PreguntesPersonalsActivity"
+                android:exported="true"/>
+            <activity
+                android:name=".Nivell1Activity"
+                android:exported="true"/>
+             <activity
+                 android:name=".nivell1.CalculActivity"
+                 android:exported="true"/>
+            <activity
+                android:name=".PantallaPrincipalActivity"
+                android:exported="true"/>
+        <activity
+            android:name=".SignUpActivity"
+            android:exported="true"/>
+        <activity
+            android:name=".Nivell2Activity"
+            android:exported="true"/>
+        <activity
+            android:name=".nivell2.PreguntesPersonalsActivity"
+            android:exported="true"/>
+        <activity
+            android:name=".nivell2.CalculActivity"
+            android:exported="true"/>
+        <activity
+            android:name=".nivell2.AsociarImagenesActivity"
+            android:exported="true"/>
+        <activity
+            android:name=".Nivell3Activity"
+            android:exported="true"/>
+        <activity
+            android:name=".nivell3.PreguntesPersonalsActivity"
+            android:exported="true"/>
+        <activity
+            android:name=".nivell3.CalculActivity"
+            android:exported="true"/>
+        <activity
+            android:name=".nivell3.AsociarImagenesActivity"
+            android:exported="true"/>
+
+        <activity
+            android:name=".CatalaSignInActivity"
+            android:exported="true"/>
+        <activity
+            android:name=".catala_nivell1.CatalaAsociarImagenesActivity"
+            android:exported="true"/>
+        <activity
+            android:name=".CatalaFamilySignUpActivity"
+            android:exported="true"/>
+        <activity
+            android:name=".CatalaFamilyPrincipalActivity"
+            android:exported="true"/>
+        <activity
+            android:name=".CatalaFamilySignInActivity"
+            android:exported="true"/>
+        <activity
+            android:name=".CatalaPantallaPrincipalFamiliarActivity"
+            android:exported="true"/>
+        <activity
+            android:name=".CatalaQuestionsActivity"
+            android:exported="true"/>
+        <activity
+            android:name=".catala_nivell1.CatalaPreguntesPersonalsActivity"
+            android:exported="true"/>
+        <activity
+            android:name=".CatalaNivell1Activity"
+            android:exported="true"/>
+        <activity
+            android:name=".catala_nivell1.CatalaCalculActivity"
+            android:exported="true"/>
+        <activity
+            android:name=".CatalaPantallaPrincipalActivity"
+            android:exported="true"/>
+        <activity
+            android:name=".CatalaSignUpActivity"
+            android:exported="true"/>
+        <activity
+            android:name=".CatalaNivell2Activity"
+            android:exported="true"/>
+        <activity
+            android:name=".catala_nivell2.CatalaPreguntesPersonalsActivity"
+            android:exported="true"/>
+        <activity
+            android:name=".catala_nivell2.CatalaCalculActivity"
+            android:exported="true"/>
+        <activity
+            android:name=".catala_nivell2.CatalaAsociarImagenesActivity"
+            android:exported="true"/>
+        <activity
+            android:name=".CatalaNivell3Activity"
+            android:exported="true"/>
+        <activity
+            android:name=".catala_nivell3.CatalaPreguntesPersonalsActivity"
+            android:exported="true"/>
+        <activity
+            android:name=".catala_nivell3.CatalaCalculActivity"
+            android:exported="true"/>
+        <activity
+            android:name=".catala_nivell3.CatalaAsociarImagenesActivity"
+            android:exported="true"/>
+        </application>
+
+
+
+</manifest>

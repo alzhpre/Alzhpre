@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "378404933832",
+    "project_id": "alzhpre-342b0",
+    "storage_bucket": "alzhpre-342b0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:378404933832:android:9fadfeb14bac9e27a295fd",
+        "android_client_info": {
+          "package_name": "com.example.alzhpre"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA1aOwdd_3W7qZwRvXcL50KR23yRY40KC4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

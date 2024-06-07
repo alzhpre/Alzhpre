@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation_familiar"
+    app:startDestination="@+id/nav_graph_familiar">
+
+    <fragment
+        android:id="@+id/nav_graph_familiar"
+        android:name="com.example.alzhpre.catala_ui_familiar.graph.CatalaGraphFamiliarFragment"
+        android:label="@string/menu_perfil"
+        tools:layout="@layout/fragment_graph_familiar" />
+    <fragment
+        android:id="@+id/nav_about_familiar"
+        android:name="com.example.alzhpre.catala_ui_familiar.about.CatalaAboutFamiliarFragment"
+        android:label="@string/menu_perfil"
+        tools:layout="@layout/fragment_about_familiar" />
+    <fragment
+        android:id="@+id/nav_logout_familiar"
+        android:name="com.example.alzhpre.catala_ui_familiar.logout.CatalaLogoutFamiliarFragment"
+        android:label="@string/menu_logout"
+        tools:layout="@layout/fragment_logout_familiar" />
+</navigation>

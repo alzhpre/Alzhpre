@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:gbp="http://schemas.android.com/apk/res-auto">
+
+
+    <TextView
+        android:id="@+id/textViewwait"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="Espere porfavor..."
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        gbp:layout_constraintBottom_toBottomOf="parent"
+        gbp:layout_constraintEnd_toEndOf="parent"
+        gbp:layout_constraintStart_toStartOf="parent"
+        gbp:layout_constraintTop_toTopOf="parent"
+        gbp:layout_constraintVertical_bias="0.04">
+
+    </TextView>
+
+    <com.jpardogo.android.googleprogressbar.library.GoogleProgressBar
+        android:id="@+id/google_progress"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="10dp"
+        gbp:layout_constraintBottom_toBottomOf="parent"
+        gbp:layout_constraintEnd_toEndOf="parent"
+        gbp:layout_constraintStart_toStartOf="parent"
+        gbp:layout_constraintTop_toBottomOf="@+id/textViewwait"
+        gbp:layout_constraintVertical_bias="0.032"
+        gbp:type="folding_circles">
+
+    </com.jpardogo.android.googleprogressbar.library.GoogleProgressBar>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
