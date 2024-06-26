@@ -40,11 +40,9 @@ class CatalaAboutFragment : Fragment() {
     private val handler = Handler(Looper.getMainLooper())
     private val PICK_IMAGE_REQUEST = 1
 
-
     // This property is only valid between onCreateView and
     // onDestroyView.
-
-    private val binding get() = _binding!!
+    private val binding get() = _binding
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -53,7 +51,7 @@ class CatalaAboutFragment : Fragment() {
     ): View {
         ViewModelProvider(this).get(CatalaAboutViewModel::class.java)
         _binding = CatalaFragmentAboutBinding.inflate(inflater, container, false)
-        return binding.root
+        return binding!!.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -64,15 +62,14 @@ class CatalaAboutFragment : Fragment() {
 
         uid?.let { getUserData(it) }
 
-        binding.profileImage.setOnClickListener {
+        binding?.profileImage?.setOnClickListener {
             showAvatarSelectionDialog()
         }
 
-        binding.saveBtn.setOnClickListener {
+        binding?.saveBtn?.setOnClickListener {
             saveUserData()
         }
         updateAvatar()
-
 
         handler.postDelayed(object : Runnable {
             override fun run() {
@@ -80,19 +77,17 @@ class CatalaAboutFragment : Fragment() {
                 handler.postDelayed(this, 5000)
             }
         }, 5000)
-
-
     }
 
     private fun saveUserData() {
         val uid = auth.currentUser?.uid ?: return
 
-        val username = binding.edUsername.text.toString()
-        val email = binding.edEmail.text.toString()
-        val pass = binding.edPassword.text.toString()
-        val nivell = binding.edNivell.text.toString()
-        val familyUser = binding.edUserFamiliar.text.toString()
-        val familyEmail = binding.edEmailFamiliar.text.toString()
+        val username = binding?.edUsername?.text.toString()
+        val email = binding?.edEmail?.text.toString()
+        val pass = binding?.edPassword?.text.toString()
+        val nivell = binding?.edNivell?.text.toString()
+        val familyUser = binding?.edUserFamiliar?.text.toString()
+        val familyEmail = binding?.edEmailFamiliar?.text.toString()
         val user = User(username, email, nivell)
 
         databaseReference.child(uid).child("Profile").setValue(user)
@@ -109,7 +104,7 @@ class CatalaAboutFragment : Fragment() {
         databaseReference.child(currentUserUid).child("Imagen").child("imag")
             .addValueEventListener(object : ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
-                    if (view != null && isAdded) {
+                    if (view != null && isAdded && binding != null) {
                         val imagen: String? = snapshot.getValue(String::class.java)
                         val resId = when (imagen) {
                             "avatar1" -> R.drawable.avatar1
@@ -118,7 +113,7 @@ class CatalaAboutFragment : Fragment() {
                             "avatar4" -> R.drawable.avatar4
                             else -> R.drawable.profile // Cambia a un avatar predeterminado si es necesario
                         }
-                        binding.profileImage.setImageResource(resId)
+                        binding?.profileImage?.setImageResource(resId)
                     }
                 }
 
@@ -133,7 +128,6 @@ class CatalaAboutFragment : Fragment() {
         val regex = Regex("^(?=.*[A-Z]).{5,}$")
         return regex.containsMatchIn(password)
     }
-
 
     private fun showAvatarSelectionDialog() {
         dialog = Dialog(requireContext())
@@ -154,7 +148,7 @@ class CatalaAboutFragment : Fragment() {
     }
 
     private fun selectAvatar(avatarResId: Int) {
-        binding.profileImage.setImageResource(avatarResId)
+        binding?.profileImage?.setImageResource(avatarResId)
         saveAvatarToDatabase(avatarResId)
         dialog.dismiss()
     }
@@ -185,23 +179,22 @@ class CatalaAboutFragment : Fragment() {
             }
     }
 
-
     private fun getUserData(uid: String) {
         databaseReference.child(uid).child("Profile").get().addOnSuccessListener { snapshot ->
             if (snapshot.exists()) {
+                if (view == null || !isAdded || binding == null) return@addOnSuccessListener
                 val user = snapshot.getValue(User::class.java)
                 user?.let {
-                    binding.edUsername.setText(it.username)
-                    binding.edEmail.setText(it.email)
-                    binding.edNivell.setText(it.nivell)
-
-
+                    binding?.edUsername?.setText(it.username)
+                    binding?.edEmail?.setText(it.email)
+                    binding?.edNivell?.setText(it.nivell)
                 }
                 databaseReference.child(uid).child("Profile").child("familyUser")
                     .addValueEventListener(object : ValueEventListener {
                         override fun onDataChange(snapshot: DataSnapshot) {
+                            if (view == null || !isAdded || binding == null) return
                             val familyUser: String? = snapshot.getValue(String::class.java)
-                            binding.edUserFamiliar.setText(familyUser)
+                            binding?.edUserFamiliar?.setText(familyUser)
                         }
 
                         override fun onCancelled(error: DatabaseError) {
@@ -216,8 +209,9 @@ class CatalaAboutFragment : Fragment() {
                 databaseReference.child(uid).child("Profile").child("familyEmail")
                     .addValueEventListener(object : ValueEventListener {
                         override fun onDataChange(snapshot: DataSnapshot) {
+                            if (view == null || !isAdded || binding == null) return
                             val familyEmail: String? = snapshot.getValue(String::class.java)
-                            binding.edEmailFamiliar.setText(familyEmail)
+                            binding?.edEmailFamiliar?.setText(familyEmail)
                         }
 
                         override fun onCancelled(error: DatabaseError) {
@@ -260,7 +254,6 @@ class CatalaAboutFragment : Fragment() {
             Toast.makeText(requireContext(), "No authenticated user.", Toast.LENGTH_SHORT).show()
         }
     }
-
 
     override fun onDestroyView() {
         super.onDestroyView()

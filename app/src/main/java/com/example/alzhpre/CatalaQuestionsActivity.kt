@@ -76,18 +76,18 @@ class CatalaQuestionsActivity: AppCompatActivity() {
                                 TextUtils.isEmpty(residencePlace) || TextUtils.isEmpty(parentsName) || TextUtils.isEmpty(brothersName) ||
                                 TextUtils.isEmpty(professio) || TextUtils.isEmpty(menjarPreferit) || TextUtils.isEmpty(colorPreferit) ||
                                 TextUtils.isEmpty(peliculaPreferida) || TextUtils.isEmpty(musicaPreferida) || TextUtils.isEmpty(aficioPreferida)) {
-                                Toast.makeText(this@CatalaQuestionsActivity, "Todos los campos son obligatorios", Toast.LENGTH_SHORT).show()
+                                Toast.makeText(this@CatalaQuestionsActivity, "Tots els camps son obligatoris", Toast.LENGTH_SHORT).show()
                             }
                             // El usuario no ha respondido las preguntas, guardarlas en la base de datos
                             val questions = Questions(nameandsurname, birthday, birthplace, residencePlace, parentsName, brothersName, coupleName,
                                 childrenName, pets, petsName, professio, menjarPreferit, colorPreferit, peliculaPreferida, musicaPreferida, aficioPreferida)
                             userQuestionsRef.setValue(questions).addOnSuccessListener {
                                 clearFields()
-                                Toast.makeText(this@CatalaQuestionsActivity, "Guardado correctamente", Toast.LENGTH_SHORT).show()
+                                Toast.makeText(this@CatalaQuestionsActivity, "Guardat correctament", Toast.LENGTH_SHORT).show()
                                 val intent = Intent(this@CatalaQuestionsActivity, CatalaPantallaPrincipalActivity::class.java)
                                 startActivity(intent)
                             }.addOnFailureListener {
-                                Toast.makeText(this@CatalaQuestionsActivity, "Ha habido un error", Toast.LENGTH_SHORT).show()
+                                Toast.makeText(this@CatalaQuestionsActivity, "Ha hagut un error", Toast.LENGTH_SHORT).show()
                             }
                             }
                         }

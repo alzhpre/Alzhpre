@@ -94,7 +94,7 @@ class CatalaNivell3Activity: AppCompatActivity() {
         findViewById<Button>(R.id.btnPreguntesPersonals).setOnClickListener {
             saveCorrectClick(currentUserUid)
             stopInteractionTimer()
-            val intent = Intent(this, com.example.alzhpre.nivell3.PreguntesPersonalsActivity::class.java)
+            val intent = Intent(this, com.example.alzhpre.catala_nivell3.CatalaPreguntesPersonalsActivity::class.java)
             startActivity(intent)
         }
     }
@@ -105,7 +105,7 @@ class CatalaNivell3Activity: AppCompatActivity() {
         findViewById<Button>(R.id.btnMemoritzacio).setOnClickListener {
             saveCorrectClick(currentUserUid)
             stopInteractionTimer()
-            val intent = Intent(this, com.example.alzhpre.nivell3.AsociarImagenesActivity::class.java)
+            val intent = Intent(this, com.example.alzhpre.catala_nivell3.CatalaAsociarImagenesActivity::class.java)
             startActivity(intent)
         }
     }
@@ -116,7 +116,7 @@ class CatalaNivell3Activity: AppCompatActivity() {
         findViewById<Button>(R.id.btnCalculs).setOnClickListener {
             saveCorrectClick(currentUserUid)
             stopInteractionTimer()
-            val intent = Intent(this, com.example.alzhpre.nivell3.CalculActivity::class.java)
+            val intent = Intent(this, com.example.alzhpre.catala_nivell3.CatalaCalculActivity::class.java)
             startActivity(intent)
         }
     }

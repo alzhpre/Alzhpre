@@ -100,7 +100,7 @@ class CatalaCalculActivity : AppCompatActivity() {
             val rootView: View = findViewById(android.R.id.content)
             mostrarSnackbar(
                 rootView,
-                "Cuanto es $precioAleatorio * $factorAleatorio ?",
+                "Quant es $precioAleatorio * $factorAleatorio ?",
                 R.color.teal_200,
                 R.color.black
             )
@@ -115,7 +115,7 @@ class CatalaCalculActivity : AppCompatActivity() {
                     if (dato == precioFinal.toString()) {
                         mostrarSnackbar(
                             rootView,
-                            "La respuesta $respuestaCorrecta es correcta!",
+                            "La resposta $respuestaCorrecta es correcta!",
                             R.color.color_verde,
                             R.color.black
                         )
@@ -131,11 +131,11 @@ class CatalaCalculActivity : AppCompatActivity() {
                         }, 1000)
 
                     } else {
-                        val aux = precioFinal.toString()
+                        val dato = binding.editDatos.text.toString()
                         val rootView: View = findViewById(android.R.id.content)
                         mostrarSnackbar(
                             rootView,
-                            "La respuesta $aux es incorrecta!",
+                            "La resposta $dato es incorrecta!",
                             R.color.color_rojo,
                             R.color.black
                         )
@@ -191,7 +191,7 @@ class CatalaCalculActivity : AppCompatActivity() {
 
                             if (errorPercentage > errorThreshold) {
                                 val mensaje =
-                                    "El usuario ha superado el umbral de errores permitido."
+                                    "L'usuari ha superat l'umbral de errors permesos."
                                 sendNotificationToUser(familyUser, mensaje)
                             }
                         }
@@ -208,9 +208,9 @@ class CatalaCalculActivity : AppCompatActivity() {
             .build()
         try {
             FirebaseMessaging.getInstance().send(remoteMessage)
-            println("Notificación enviada al usuario: $otherUserUid")
+            println("Notificació enviada a l'usuari: $otherUserUid")
         } catch (e: Exception) {
-            println("Error al enviar notificación al usuario: $otherUserUid")
+            println("Error al enviar notificació a l'usuari: $otherUserUid")
         }
     }
 
@@ -300,7 +300,7 @@ class CatalaCalculActivity : AppCompatActivity() {
 
                                                             if (errorPercentage > 70 ) {
                                                                 val mensaje =
-                                                                    "El usuari ha superat el umbral de errors permès amb un $errorPercentage"
+                                                                    "L'usuari ha superat l'umbral de errors permesos amb un $errorPercentage"
                                                                 sendEmail(
                                                                     familyEmail,
                                                                     mensaje
@@ -325,7 +325,7 @@ class CatalaCalculActivity : AppCompatActivity() {
             putExtra(Intent.EXTRA_TEXT, message)
         }
         try {
-            startActivity(Intent.createChooser(emailIntent, "Enviar correu electrònic usant..."))
+            startActivity(Intent.createChooser(emailIntent, "Enviar correu electrònic utilitzant..."))
         } catch (e: Exception) {
             Toast.makeText(this, "No hi ha cap aplicació de correu instal·lada.", Toast.LENGTH_SHORT).show()
         }

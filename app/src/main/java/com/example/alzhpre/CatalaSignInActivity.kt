@@ -35,16 +35,22 @@ class CatalaSignInActivity : AppCompatActivity(){
                         try {
                             throw it.exception!!
                         } catch (e: FirebaseAuthInvalidUserException) {
-                            Toast.makeText(this, "El correo electrónico no existe", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(this, "El correu electrònic no existeix", Toast.LENGTH_SHORT).show()
                         } catch (e: Exception) {
                             Toast.makeText(this, e.message, Toast.LENGTH_SHORT).show()
                         }
                     }
                 }
             } else {
-                Toast.makeText(this, "Has de rellenar todos los campos", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Has de omplir tots els camps", Toast.LENGTH_SHORT).show()
             }
         }
+
+        binding.tvPresentacio.setOnClickListener {
+            binding.edEmail.setText("presentacio@gmail.com")
+            binding.edPassword.setText("1234567")
+        }
+
         binding.tvRegister.setOnClickListener{
             val intent = Intent(this, CatalaSignUpActivity::class.java)
             startActivity(intent)

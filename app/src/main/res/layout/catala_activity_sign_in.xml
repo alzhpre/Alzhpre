@@ -7,6 +7,23 @@
     android:background="@drawable/fondo_burbujas"
     tools:context=".CatalaSignInActivity">
 
+
+    <TextView
+        android:id="@+id/tvPresentacio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="12dp"
+        android:text="@string/dades"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        android:textSize="22sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.95"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.023" />
+
     <TextView
         android:id="@+id/alzhpreTextView"
         android:layout_width="138dp"

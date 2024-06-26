@@ -158,7 +158,6 @@ class CalculActivity : AppCompatActivity() {
                         // La respuesta es incorrecta
                         val aux = preciosCalculados[index]
                         val rootView: View = findViewById(android.R.id.content)
-                        respuestaCorrecta = aux
                         mostrarSnackbar(rootView, "La respuesta $aux es incorrecta!", R.color.color_rojo, R.color.black)
                         button.setBackgroundResource(R.color.color_rojo)
                         mediaPlayer2.start()

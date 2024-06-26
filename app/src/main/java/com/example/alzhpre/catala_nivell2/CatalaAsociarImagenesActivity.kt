@@ -27,7 +27,7 @@ import com.google.firebase.messaging.RemoteMessage
 class CatalaAsociarImagenesActivity : AppCompatActivity() {
 
     // Lista de palabras
-    private val palabras = listOf("Arbol", "Avion", "Casa", "Columpio", "Horno", "Llaves", "Semaforo", "Television", "Tren")
+    private val palabras = listOf("Arbre", "Avio", "Casa", "Columpi", "Forn", "Claus", "Semafor", "Televisio", "Tren")
 
     // Lista de IDs de recursos de imágenes asociadas
     private val imagenes = listOf(
@@ -162,7 +162,7 @@ class CatalaAsociarImagenesActivity : AppCompatActivity() {
                         // La respuesta es correcta
                         saveCorrectClick(currentUserUid)
                         val rootView: View = findViewById(android.R.id.content)
-                        mostrarSnackbar(rootView, "La respuesta $respuestaCorrecta es correcta!", R.color.color_verde, R.color.black)
+                        mostrarSnackbar(rootView, "La resposta $respuestaCorrecta es correcta!", R.color.color_verde, R.color.black)
                         button.setBackgroundResource(R.color.color_verde)
                         palabraTextView.text = respuestaCorrecta
                         mediaPlayer.start()
@@ -180,7 +180,7 @@ class CatalaAsociarImagenesActivity : AppCompatActivity() {
                         // La respuesta es incorrecta
                         val aux = opcionesDesordenadas[index]
                         val rootView: View = findViewById(android.R.id.content)
-                        mostrarSnackbar(rootView, "La respuesta $aux es incorrecta!", R.color.color_rojo, R.color.black)
+                        mostrarSnackbar(rootView, "La resposta $aux es incorrecta!", R.color.color_rojo, R.color.black)
                         saveCorrectClick(currentUserUid)
                         button.setBackgroundResource(R.color.color_rojo)
                         mediaPlayer2.start()
@@ -222,7 +222,7 @@ class CatalaAsociarImagenesActivity : AppCompatActivity() {
                         val errorPercentage = (incorrectAnswers * 100) / totalAnswers
 
                         if (errorPercentage > errorThreshold) {
-                            val mensaje = "El usuario ha superado el umbral de errores permitido."
+                            val mensaje = "L'usuari ha superat l'umbral de errors permesos."
                             sendNotificationToUser(familyUser, mensaje)
                         }
                     }
@@ -239,9 +239,9 @@ class CatalaAsociarImagenesActivity : AppCompatActivity() {
             .build()
         try {
             FirebaseMessaging.getInstance().send(remoteMessage)
-            println("Notificación enviada al usuario: $otherUser")
+            println("Notificació enviada a l'usuari: $otherUser")
         } catch (e: Exception) {
-            println("Error al enviar notificación al usuario: $otherUser")
+            println("Error al enviar notificació a l'usuari: $otherUser")
         }
     }
 
@@ -329,7 +329,7 @@ class CatalaAsociarImagenesActivity : AppCompatActivity() {
 
                                                             if (errorPercentage > 70 ) {
                                                                 val mensaje =
-                                                                    "El usuari ha superat el umbral de errors permès amb un $errorPercentage"
+                                                                    "L'usuari ha superat l'umbral de errors permesos amb un $errorPercentage"
                                                                 sendEmail(
                                                                     familyEmail,
                                                                     mensaje
@@ -354,7 +354,7 @@ class CatalaAsociarImagenesActivity : AppCompatActivity() {
             putExtra(Intent.EXTRA_TEXT, message)
         }
         try {
-            startActivity(Intent.createChooser(emailIntent, "Enviar correu electrònic usant..."))
+            startActivity(Intent.createChooser(emailIntent, "Enviar correu electrònic utilitzant..."))
         } catch (e: Exception) {
             Toast.makeText(this, "No hi ha cap aplicació de correu instal·lada.", Toast.LENGTH_SHORT).show()
         }

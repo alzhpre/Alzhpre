@@ -48,7 +48,7 @@ class CatalaAboutFamiliarFragment : Fragment() {
 
     // This property is only valid between onCreateView and
     // onDestroyView.
-    private val binding get() = _binding!!
+    private val binding get() = _binding
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -57,7 +57,7 @@ class CatalaAboutFamiliarFragment : Fragment() {
     ): View {
         ViewModelProvider(this).get(com.example.p1prova.catala_ui_familiar.about.CatalaAboutViewModel::class.java)
         _binding = CatalaFragmentAboutFamiliarBinding.inflate(inflater, container, false)
-        return binding.root
+        return binding!!.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -69,7 +69,6 @@ class CatalaAboutFamiliarFragment : Fragment() {
 
         updateAvatar()
 
-
         handler.postDelayed(object : Runnable {
             override fun run() {
                 updateAvatar()
@@ -77,19 +76,16 @@ class CatalaAboutFamiliarFragment : Fragment() {
             }
         }, 5000)
 
-
-        uid?.let { getUserData(it)}
-        binding.profileImage.setOnClickListener {
+        uid?.let { getUserData(it) }
+        binding?.profileImage?.setOnClickListener {
             showAvatarSelectionDialog()
         }
 
-
-        binding.saveBtn.setOnClickListener {
-            showProgressBar()
-            val username = binding.edUsername.text.toString()
-            val email = binding.edEmail.text.toString()
-            val pass = binding.edPassword.text.toString()
-            val familyUser = binding.edUserFamiliar.text.toString()
+        binding?.saveBtn?.setOnClickListener {
+            val username = binding?.edUsername?.text.toString()
+            val email = binding?.edEmail?.text.toString()
+            val pass = binding?.edPassword?.text.toString()
+            val familyUser = binding?.edUserFamiliar?.text.toString()
             val user = FamilyUser(username, email, familyUser)
 
             if (uid != null) {
@@ -112,7 +108,6 @@ class CatalaAboutFamiliarFragment : Fragment() {
         return regex.containsMatchIn(password)
     }
 
-
     private fun showAvatarSelectionDialog() {
         dialog = Dialog(requireContext())
         dialog.setContentView(R.layout.dialog_avatar_selection)
@@ -132,7 +127,7 @@ class CatalaAboutFamiliarFragment : Fragment() {
     }
 
     private fun selectAvatar(avatarResId: Int) {
-        binding.profileImage.setImageResource(avatarResId)
+        binding?.profileImage?.setImageResource(avatarResId)
         saveAvatarToDatabase(avatarResId)
         dialog.dismiss()
     }
@@ -157,12 +152,13 @@ class CatalaAboutFamiliarFragment : Fragment() {
                 Log.e(ContentValues.TAG, "Failed to update avatar", exception)
             }
     }
+
     private fun updateAvatar() {
         val currentUserUid = auth.currentUser?.uid ?: return
         databaseReference.child(currentUserUid).child("Imagen").child("imag")
             .addValueEventListener(object : ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
-                    if (view != null && isAdded) {
+                    if (view != null && isAdded && binding != null) {
                         val imagen: String? = snapshot.getValue(String::class.java)
                         val resId = when (imagen) {
                             "avatar1" -> R.drawable.avatar1
@@ -171,7 +167,7 @@ class CatalaAboutFamiliarFragment : Fragment() {
                             "avatar4" -> R.drawable.avatar4
                             else -> R.drawable.profile // Cambia a un avatar predeterminado si es necesario
                         }
-                        binding.profileImage.setImageResource(resId)
+                        binding?.profileImage?.setImageResource(resId)
                     }
                 }
 
@@ -183,12 +179,12 @@ class CatalaAboutFamiliarFragment : Fragment() {
 
     private fun getUserData(uid: String) {
         databaseReferenceFamily.child(uid).child("Profile").get().addOnSuccessListener { snapshot ->
-            if (snapshot.exists()) {
+            if (snapshot.exists() && view != null && isAdded && binding != null) {
                 val user = snapshot.getValue(FamilyUser::class.java)
                 user?.let {
-                    binding.edUsername.setText(it.username)
-                    binding.edEmail.setText(it.email)
-                    binding.edUserFamiliar.setText(it.familyUser)
+                    binding?.edUsername?.setText(it.username)
+                    binding?.edEmail?.setText(it.email)
+                    binding?.edUserFamiliar?.setText(it.familyUser)
                 }
             } else {
                 Log.d(ContentValues.TAG, "No such document")
@@ -198,13 +194,6 @@ class CatalaAboutFamiliarFragment : Fragment() {
         }
     }
 
-    private fun showProgressBar() {
-        dialog = Dialog(requireContext())
-        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
-        dialog.setContentView(R.layout.dialog_wait)
-        dialog.setCanceledOnTouchOutside(false)
-        dialog.show()
-    }
     fun updatePassword(newPassword: String) {
         val user: FirebaseUser? = FirebaseAuth.getInstance().currentUser
 

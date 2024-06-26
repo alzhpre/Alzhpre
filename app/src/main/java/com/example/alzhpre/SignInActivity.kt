@@ -45,6 +45,11 @@ class SignInActivity : AppCompatActivity(){
                 Toast.makeText(this, "Has de rellenar todos los campos", Toast.LENGTH_SHORT).show()
             }
         }
+
+        binding.tvPresentacio.setOnClickListener {
+            binding.edEmail.setText("presentacio@gmail.com")
+            binding.edPassword.setText("1234567")
+        }
         binding.tvRegister.setOnClickListener{
             val intent = Intent(this, SignUpActivity::class.java)
             startActivity(intent)

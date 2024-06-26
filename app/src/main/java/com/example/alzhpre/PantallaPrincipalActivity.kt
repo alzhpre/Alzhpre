@@ -130,7 +130,7 @@ class PantallaPrincipalActivity: AppCompatActivity() {
 
         appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.nav_home,R.id.nav_home, R.id.nav_about, R.id.nav_graph, R.id.nav_logout
+                R.id.nav_home, R.id.nav_about, R.id.nav_graph, R.id.nav_logout
             ), drawerLayout
         )
 

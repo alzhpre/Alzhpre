@@ -42,7 +42,8 @@ class CatalaPantallaPrincipalActivity: AppCompatActivity() {
 
         firebaseAuth = FirebaseAuth.getInstance()
         database = FirebaseDatabase.getInstance().reference
-        binding.appBarPantallaPrincipal.fab.setOnClickListener { view ->
+
+        binding.catalaAppBarPantallaPrincipal.fab.setOnClickListener { view ->
             showTutorial()
         }
 
@@ -120,7 +121,7 @@ class CatalaPantallaPrincipalActivity: AppCompatActivity() {
         cargarImagenPerfil()
         appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.nav_home,R.id.nav_home, R.id.nav_about, R.id.nav_graph, R.id.nav_logout
+                R.id.nav_home, R.id.nav_home, R.id.nav_about, R.id.nav_graph, R.id.nav_logout
             ), drawerLayout
         )
 
@@ -166,7 +167,7 @@ class CatalaPantallaPrincipalActivity: AppCompatActivity() {
             }
 
             override fun onCancelled(databaseError: DatabaseError) {
-                Log.e("PantallaPrincipalActivity", "Error al cargar la imagen de perfil: ${databaseError.message}")
+                Log.e("CatalaPantallaPrincipalActivity", "Error al carregar la imatge de perfil: ${databaseError.message}")
             }
         })
     }

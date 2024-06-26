@@ -58,12 +58,12 @@ class CatalaSignUpActivity: AppCompatActivity() {
                                 val currentUser = firebaseAuth.currentUser
                                 currentUser?.sendEmailVerification()?.addOnCompleteListener { task ->
                                     if (task.isSuccessful) {
-                                        Toast.makeText(this, "Registro exitoso. Por favor, verifica tu correo electrónico.", Toast.LENGTH_SHORT).show()
+                                        Toast.makeText(this, "Registre exitòs. Si us plau, verifica el teu correu electrònic.", Toast.LENGTH_SHORT).show()
                                         saveUserToDatabase(username, email, nivell)
                                         val intent = Intent(this, CatalaSignInActivity::class.java)
                                         startActivity(intent)
                                     } else {
-                                        Toast.makeText(this, "Error al enviar el correo de verificación.", Toast.LENGTH_SHORT).show()
+                                        Toast.makeText(this, "Error al enviar el correu de verificació.", Toast.LENGTH_SHORT).show()
                                     }
                                 }
                             } else {
@@ -71,13 +71,13 @@ class CatalaSignUpActivity: AppCompatActivity() {
                             }
                         }
                     } else {
-                        Toast.makeText(this, "La contraseña debe tener al menos 5 caracteres y al menos una letra mayúscula", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this, "La contrasenya ha de tindre al menys 5 caràcteres y al menys una lletra majuscula", Toast.LENGTH_SHORT).show()
                     }
                 } else {
-                    Toast.makeText(this, "Las contraseñas no coinciden", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "Las contrasenyes no coincideixen", Toast.LENGTH_SHORT).show()
                 }
             } else {
-                Toast.makeText(this, "Has de rellenar todos los campos", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Has de omplir tots els camps", Toast.LENGTH_SHORT).show()
             }
         }
     }

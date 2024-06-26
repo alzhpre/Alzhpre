@@ -139,7 +139,7 @@ class CatalaPreguntesPersonalsActivity : AppCompatActivity() {
                         mediaPlayer.start()
                         saveCorrectClick(currentUserUid)
                         val rootView: View = findViewById(android.R.id.content)
-                        mostrarSnackbar(rootView, "La respuesta $respuesta es correcta!", R.color.color_verde, R.color.black)
+                        mostrarSnackbar(rootView, "La resposta $respuesta es correcta!", R.color.color_verde, R.color.black)
                         guardarResultado("correcto")
                         mainHandler.postDelayed({
                             cridarFuncio()
@@ -181,7 +181,7 @@ class CatalaPreguntesPersonalsActivity : AppCompatActivity() {
                         mediaPlayer.start()
                         saveCorrectClick(currentUserUid)
                         val rootView: View = findViewById(android.R.id.content)
-                        mostrarSnackbar(rootView, "La respuesta $respuesta es correcta!", R.color.color_verde, R.color.black)
+                        mostrarSnackbar(rootView, "La resposta $respuesta es correcta!", R.color.color_verde, R.color.black)
                         guardarResultado("correcto")
                         mainHandler.postDelayed({
                             cridarFuncio()
@@ -217,7 +217,7 @@ class CatalaPreguntesPersonalsActivity : AppCompatActivity() {
                         mediaPlayer.start()
                         saveCorrectClick(currentUserUid)
                         val rootView: View = findViewById(android.R.id.content)
-                        mostrarSnackbar(rootView, "La respuesta $respuesta es correcta!", R.color.color_verde, R.color.black)
+                        mostrarSnackbar(rootView, "La resposta $respuesta es correcta!", R.color.color_verde, R.color.black)
                         guardarResultado("correcto")
                         mainHandler.postDelayed({
                             cridarFuncio()
@@ -277,7 +277,7 @@ class CatalaPreguntesPersonalsActivity : AppCompatActivity() {
                         val errorPercentage = (incorrectAnswers * 100) / totalAnswers
 
                         if (errorPercentage > errorThreshold) {
-                            val mensaje = "El usuario ha superado el umbral de errores permitido."
+                            val mensaje = "L'usuari ha superat l'umbral de errors permesos."
                             sendNotificationToUser(familyUser, mensaje)
                         }
                     }
@@ -293,9 +293,9 @@ class CatalaPreguntesPersonalsActivity : AppCompatActivity() {
             .build()
         try {
             FirebaseMessaging.getInstance().send(remoteMessage)
-            println("Notificación enviada al usuario: $otherUserUid")
+            println("Notificació enviada a l'usuari: $otherUserUid")
         } catch (e: Exception) {
-            println("Error al enviar notificación al usuario: $otherUserUid")
+            println("Error al enviar notificació a l'usuari: $otherUserUid")
         }
     }
     private fun obtenerTextoPregunta(pregunta: String): String {
@@ -405,7 +405,7 @@ class CatalaPreguntesPersonalsActivity : AppCompatActivity() {
 
                                                             if (errorPercentage > 70 ) {
                                                                 val mensaje =
-                                                                    "El usuari ha superat el umbral de errors permès amb un $errorPercentage"
+                                                                    "L'usuari ha superat l'umbral de errors permesos amb un $errorPercentage"
                                                                 sendEmail(
                                                                     familyEmail,
                                                                     mensaje
@@ -430,7 +430,7 @@ class CatalaPreguntesPersonalsActivity : AppCompatActivity() {
             putExtra(Intent.EXTRA_TEXT, message)
         }
         try {
-            startActivity(Intent.createChooser(emailIntent, "Enviar correu electrònic usant..."))
+            startActivity(Intent.createChooser(emailIntent, "Enviar correu electrònic utilitzant..."))
         } catch (e: Exception) {
             Toast.makeText(this, "No hi ha cap aplicació de correu instal·lada.", Toast.LENGTH_SHORT).show()
         }

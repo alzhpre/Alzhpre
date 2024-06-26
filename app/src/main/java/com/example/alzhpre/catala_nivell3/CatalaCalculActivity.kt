@@ -148,7 +148,7 @@ class CatalaCalculActivity : AppCompatActivity() {
                         // La respuesta es correcta
                         saveCorrectClick(currentUserUid)
                         val rootView: View = findViewById(android.R.id.content)
-                        mostrarSnackbar(rootView, "La respuesta $respuestaCorrecta es correcta!", R.color.color_verde, R.color.black)
+                        mostrarSnackbar(rootView, "La resposta $respuestaCorrecta es correcta!", R.color.color_verde, R.color.black)
                         button.setBackgroundResource(R.color.color_verde)
                         mediaPlayer.start()
                         guardarResultado("correcto")
@@ -163,7 +163,7 @@ class CatalaCalculActivity : AppCompatActivity() {
                         // La respuesta es incorrecta
                         val aux = preciosCalculados[index]
                         val rootView: View = findViewById(android.R.id.content)
-                        mostrarSnackbar(rootView, "La respuesta $aux es incorrecta!", R.color.color_rojo, R.color.black)
+                        mostrarSnackbar(rootView, "La resposta $aux es incorrecta!", R.color.color_rojo, R.color.black)
                         button.setBackgroundResource(R.color.color_rojo)
                         mediaPlayer2.start()
                         saveCorrectClick(currentUserUid)
@@ -177,7 +177,7 @@ class CatalaCalculActivity : AppCompatActivity() {
         }
         val aux = opcionesDesordenadas[posicionCorrecta]
         val rootView: View = findViewById(android.R.id.content)
-        mostrarSnackbar(rootView, "Cuanto es $precioAleatorio * $aux ?", R.color.teal_200, R.color.black)
+        mostrarSnackbar(rootView, "Quant es $precioAleatorio * $aux ?", R.color.teal_200, R.color.black)
         // Mostrar la cantidad aleatoria correcta en el TextView2
         textView2.text = opcionesDesordenadas[posicionCorrecta].toString()
     }
@@ -196,7 +196,7 @@ class CatalaCalculActivity : AppCompatActivity() {
                     val familyUser =  snapshot.getValue(String::class.java)
                     familyUser?.let {
                         database.child("Resultados").child(it).child("Calcul").push().setValue(resultadoMap)
-                        if (resultado == "correcto") {
+                        if (resultado == "correcte") {
                             correctAnswers++
                         } else {
                             incorrectAnswers++
@@ -206,7 +206,7 @@ class CatalaCalculActivity : AppCompatActivity() {
                         val errorPercentage = (incorrectAnswers * 100) / totalAnswers
 
                         if (errorPercentage > errorThreshold) {
-                            val mensaje = "El usuario ha superado el umbral de errores permitido."
+                            val mensaje = "L'usuari ha superat l'umbral de errors permèsos."
                             sendNotificationToUser(familyUser, mensaje)
                         }
                     }
@@ -222,9 +222,9 @@ class CatalaCalculActivity : AppCompatActivity() {
             .build()
         try {
             FirebaseMessaging.getInstance().send(remoteMessage)
-            println("Notificación enviada al usuario: $otherUserUid")
+            println("Notificació enviada al usuari: $otherUserUid")
         } catch (e: Exception) {
-            println("Error al enviar notificación al usuario: $otherUserUid")
+            println("Error al enviar notificació al usuari: $otherUserUid")
         }
     }
     fun mostrarSnackbar(view: View, mensaje: String, colorFondoResId: Int, colorTextoResId: Int) {
@@ -311,7 +311,7 @@ class CatalaCalculActivity : AppCompatActivity() {
 
                                                             if (errorPercentage > 70 ) {
                                                                 val mensaje =
-                                                                    "El usuari ha superat el umbral de errors permès amb un $errorPercentage"
+                                                                    "L'usuari ha superat el umbral de errors permès amb un $errorPercentage"
                                                                 sendEmail(
                                                                     familyEmail,
                                                                     mensaje
@@ -336,7 +336,7 @@ class CatalaCalculActivity : AppCompatActivity() {
             putExtra(Intent.EXTRA_TEXT, message)
         }
         try {
-            startActivity(Intent.createChooser(emailIntent, "Enviar correu electrònic usant..."))
+            startActivity(Intent.createChooser(emailIntent, "Enviar correu electrònic utilitzant..."))
         } catch (e: Exception) {
             Toast.makeText(this, "No hi ha cap aplicació de correu instal·lada.", Toast.LENGTH_SHORT).show()
         }

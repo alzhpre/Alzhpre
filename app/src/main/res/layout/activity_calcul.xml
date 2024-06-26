@@ -125,7 +125,7 @@
 
         <TextView
             android:id="@+id/textViewCantidad"
-            android:textColor="@color/black"
+            android:textColor="@color/azul_cielo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="28sp" />

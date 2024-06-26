@@ -1,6 +1,8 @@
 package com.example.alzhpre
 
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.util.Log
 import android.view.Gravity
 import android.view.Menu
@@ -34,6 +36,7 @@ class CatalaPantallaPrincipalFamiliarActivity: AppCompatActivity() {
     private lateinit var binding: CatalaActivityPantallaPrincipalFamiliarBinding
     private lateinit var firebaseAuth: FirebaseAuth
     private lateinit var database: DatabaseReference
+    private val handler = Handler(Looper.getMainLooper())
 
 
     private lateinit var appBarConfiguration: AppBarConfiguration
@@ -47,7 +50,7 @@ class CatalaPantallaPrincipalFamiliarActivity: AppCompatActivity() {
         database = FirebaseDatabase.getInstance().reference
 
 
-        val drawerLayout: DrawerLayout = binding.drawerLayoutFamiliar
+        val drawerLayout: DrawerLayout = binding.catalaDrawerLayoutFamiliar
         val navView: NavigationView = binding.navViewFamiliar
         val navController = findNavController(R.id.catala_nav_host_fragment_content_pantalla_principal_familiar)
 
@@ -58,6 +61,14 @@ class CatalaPantallaPrincipalFamiliarActivity: AppCompatActivity() {
         val currentUser = FirebaseAuth.getInstance().currentUser!!
         val currentUserUid = currentUser.uid
 
+        cargarImagenPerfil()
+
+        handler.postDelayed(object : Runnable {
+            override fun run() {
+                cargarImagenPerfil()
+                handler.postDelayed(this, 5000)
+            }
+        }, 5000)
 
         val userReference = database.child("FamilyUsers").child(currentUserUid).child("Profile")
         userReference.child("username").addListenerForSingleValueEvent(object : ValueEventListener {
@@ -151,23 +162,33 @@ class CatalaPantallaPrincipalFamiliarActivity: AppCompatActivity() {
     }
 
     private fun cargarImagenPerfil() {
-        // Referencia al almacenamiento de Firebase donde se guarda la imagen del usuario
-        val storageRef = FirebaseStorage.getInstance().getReference("Users/${firebaseAuth.currentUser?.uid}/imagen")
+        val currentUserUid = firebaseAuth.currentUser?.uid ?: return
         val navView: NavigationView = binding.navViewFamiliar
         val headerView = navView.getHeaderView(0)
         val imagenPerfil = headerView.findViewById<CircleImageView>(R.id.imagenPerfil)
-        // Descargar la URL de la imagen
-        storageRef.downloadUrl.addOnSuccessListener { uri ->
-            // Cargar la imagen en el CircleImageView usando una biblioteca de manejo de imágenes (como Glide o Picasso)
-            Glide.with(this)
-                .load(uri)
-                .placeholder(R.drawable.profile) // Imagen de placeholder mientras se carga la imagen
-                .error(R.drawable.profile) // Imagen de error si no se puede cargar la imagen
-                .into(imagenPerfil)
-        }.addOnFailureListener { exception ->
-            // Manejar errores de descarga de URL de imagen
-            Log.e("AboutFragment", "Error al cargar la imagen de perfil: $exception")
-        }
+
+        val userReference = database.child("FamilyUsers").child(currentUserUid).child("Imagen").child("imag")
+        userReference.addListenerForSingleValueEvent(object : ValueEventListener {
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                val imagen = dataSnapshot.getValue(String::class.java)
+                val resId = when (imagen) {
+                    "avatar1" -> R.drawable.avatar1
+                    "avatar2" -> R.drawable.avatar2
+                    "avatar3" -> R.drawable.avatar3
+                    "avatar4" -> R.drawable.avatar4
+                    else -> R.drawable.profile // Imagen predeterminada
+                }
+                Glide.with(this@CatalaPantallaPrincipalFamiliarActivity)
+                    .load(resId)
+                    .placeholder(R.drawable.profile)
+                    .error(R.drawable.profile)
+                    .into(imagenPerfil)
+            }
+
+            override fun onCancelled(databaseError: DatabaseError) {
+                Log.e("PantallaPrincipalActivity", "Error al cargar la imagen de perfil: ${databaseError.message}")
+            }
+        })
     }
 
     fun mostrarSnackbar(view: View, mensaje: String, colorFondoResId: Int, colorTextoResId: Int) {

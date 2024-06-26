@@ -10,9 +10,9 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.example.alzhpre.Nivell1Activity
-import com.example.alzhpre.Nivell2Activity
-import com.example.alzhpre.Nivell3Activity
+import com.example.alzhpre.CatalaNivell1Activity
+import com.example.alzhpre.CatalaNivell2Activity
+import com.example.alzhpre.CatalaNivell3Activity
 import com.example.alzhpre.R
 import com.example.alzhpre.databinding.CatalaFragmentHomeBinding
 import com.example.p1prova.catala_ui.home.CatalaHomeViewModel
@@ -64,15 +64,15 @@ class CatalaHomeFragment : Fragment() {
                 if (nivellValue != null) {
                     when (nivellValue) {
                         "Nivell 1" -> {
-                            val intent = Intent(requireContext(), Nivell1Activity::class.java)
+                            val intent = Intent(requireContext(), CatalaNivell1Activity::class.java)
                             startActivity(intent)
                         }
                         "Nivell 2" -> {
-                            val intent = Intent(requireContext(), Nivell2Activity::class.java)
+                            val intent = Intent(requireContext(), CatalaNivell2Activity::class.java)
                             startActivity(intent)
                         }
                         "Nivell 3" -> {
-                            val intent = Intent(requireContext(), Nivell3Activity::class.java)
+                            val intent = Intent(requireContext(), CatalaNivell3Activity::class.java)
                             startActivity(intent)
                         }
                         else -> {
