@@ -112,6 +112,7 @@ class CatalaCalculActivity : AppCompatActivity() {
                 if (isClickable) {
                     isClickable = false
                     val dato = binding.editDatos.text.toString()
+                    respuestaCorrecta = dato
                     if (dato == precioFinal.toString()) {
                         mostrarSnackbar(
                             rootView,
@@ -122,7 +123,6 @@ class CatalaCalculActivity : AppCompatActivity() {
                         saveCorrectClick(currentUserUid)
                         binding.btnCalculs.setBackgroundResource(R.color.color_verde)
                         mediaPlayer.start()
-                        respuestaCorrecta = dato
                         guardarResultado("correcto")
                         mainHandler.postDelayed({
                             binding.btnCalculs.setBackgroundResource(R.drawable.fondo_humo_pequeno)
