@@ -39,8 +39,8 @@
 
     <LinearLayout
         android:id="@+id/Linear1"
-        android:layout_width="365dp"
-        android:layout_height="70dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="172dp"
         android:gravity="center_horizontal"
         android:orientation="horizontal"
@@ -85,8 +85,8 @@
 
     <LinearLayout
         android:id="@id/Linear2"
-        android:layout_width="378dp"
-        android:layout_height="70dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
         android:gravity="center_horizontal"
         android:orientation="horizontal"

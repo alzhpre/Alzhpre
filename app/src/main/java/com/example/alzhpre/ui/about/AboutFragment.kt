@@ -49,10 +49,7 @@ class AboutFragment : Fragment() {
     private val handler = Handler(Looper.getMainLooper())
     private val PICK_IMAGE_REQUEST = 1
 
-
-    // This property is only valid between onCreateView and
-    // onDestroyView.
-
+    // Esta propiedad solo es válida entre onCreateView y onDestroyView.
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -82,15 +79,12 @@ class AboutFragment : Fragment() {
         }
         updateAvatar()
 
-
         handler.postDelayed(object : Runnable {
             override fun run() {
                 updateAvatar()
                 handler.postDelayed(this, 5000)
             }
         }, 5000)
-
-
     }
 
     private fun saveUserData() {
@@ -102,14 +96,24 @@ class AboutFragment : Fragment() {
         val nivell = binding.edNivell.text.toString()
         val familyUser = binding.edUserFamiliar.text.toString()
         val familyEmail = binding.edEmailFamiliar.text.toString()
+
+        if (username.isEmpty() || email.isEmpty() || nivell.isEmpty()) {
+            Toast.makeText(requireContext(), "Please fill in all fields", Toast.LENGTH_SHORT).show()
+            return
+        }
+
         val user = User(username, email, nivell)
 
-        databaseReference.child(uid).child("Profile").setValue(user)
-        databaseReference.child(uid).child("Profile").child("familyUser").setValue(familyUser)
-        databaseReference.child(uid).child("Profile").child("familyEmail").setValue(familyEmail)
+        try {
+            databaseReference.child(uid).child("Profile").setValue(user)
+            databaseReference.child(uid).child("Profile").child("familyUser").setValue(familyUser)
+            databaseReference.child(uid).child("Profile").child("familyEmail").setValue(familyEmail)
 
-        if (pass.isNotEmpty() && isValidPassword(pass)) {
-            updatePassword(pass)
+            if (pass.isNotEmpty() && isValidPassword(pass)) {
+                updatePassword(pass)
+            }
+        } catch (e: Exception) {
+            Toast.makeText(requireContext(), "Error saving data: ${e.message}", Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -118,7 +122,7 @@ class AboutFragment : Fragment() {
         databaseReference.child(currentUserUid).child("Imagen").child("imag")
             .addValueEventListener(object : ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
-                    if (view != null && isAdded) {
+                    if (view != null && isAdded && binding != null) {
                         val imagen: String? = snapshot.getValue(String::class.java)
                         val resId = when (imagen) {
                             "avatar1" -> R.drawable.avatar1
@@ -141,7 +145,6 @@ class AboutFragment : Fragment() {
         val regex = Regex("^(?=.*[A-Z]).{5,}$")
         return regex.containsMatchIn(password)
     }
-
 
     private fun showAvatarSelectionDialog() {
         dialog = Dialog(requireContext())
@@ -188,22 +191,23 @@ class AboutFragment : Fragment() {
             }
     }
 
-
     private fun getUserData(uid: String) {
         databaseReference.child(uid).child("Profile").get().addOnSuccessListener { snapshot ->
             if (snapshot.exists()) {
                 val user = snapshot.getValue(User::class.java)
                 user?.let {
-                    binding.edUsername.setText(it.username)
-                    binding.edEmail.setText(it.email)
-                    binding.edNivell.setText(it.nivell)
-
-
+                    if (_binding != null) {
+                        binding.edUsername.setText(it.username)
+                        binding.edEmail.setText(it.email)
+                        binding.edNivell.setText(it.nivell)
+                    }
                 }
                 databaseReference.child(uid).child("Profile").child("familyUser").addValueEventListener(object : ValueEventListener {
                     override fun onDataChange(snapshot: DataSnapshot) {
-                        val familyUser: String? =  snapshot.getValue(String::class.java)
-                        binding.edUserFamiliar.setText(familyUser)
+                        if (_binding != null) {
+                            val familyUser: String? =  snapshot.getValue(String::class.java)
+                            binding.edUserFamiliar.setText(familyUser)
+                        }
                     }
 
                     override fun onCancelled(error: DatabaseError) {
@@ -213,8 +217,10 @@ class AboutFragment : Fragment() {
 
                 databaseReference.child(uid).child("Profile").child("familyEmail").addValueEventListener(object : ValueEventListener {
                     override fun onDataChange(snapshot: DataSnapshot) {
-                        val familyEmail: String? =  snapshot.getValue(String::class.java)
-                        binding.edEmailFamiliar.setText(familyEmail)
+                        if (_binding != null) {
+                            val familyEmail: String? =  snapshot.getValue(String::class.java)
+                            binding.edEmailFamiliar.setText(familyEmail)
+                        }
                     }
 
                     override fun onCancelled(error: DatabaseError) {
@@ -246,11 +252,8 @@ class AboutFragment : Fragment() {
         }
     }
 
-
-
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
     }
-
 }

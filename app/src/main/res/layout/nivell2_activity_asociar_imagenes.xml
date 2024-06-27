@@ -38,14 +38,14 @@
 
     <LinearLayout
         android:id="@+id/Linear1"
-        android:layout_width="365dp"
-        android:layout_height="54dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="172dp"
         android:gravity="center_horizontal"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/palabraTextView"
         app:layout_constraintVertical_bias="0.0">
@@ -81,8 +81,8 @@
 
     <LinearLayout
         android:id="@id/Linear2"
-        android:layout_width="378dp"
-        android:layout_height="56dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
         android:gravity="center_horizontal"
         android:orientation="horizontal"
@@ -97,7 +97,6 @@
             android:id="@+id/opcion4Button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
             android:background="@color/azul_cielo"
             android:textColor="@color/black"
             android:text="Opción 4" />
@@ -124,8 +123,9 @@
     <LinearLayout
 
         android:id="@+id/Linear3"
-        android:layout_width="378dp"
-        android:layout_height="56dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
         android:gravity="center_horizontal"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -133,13 +133,12 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Linear2"
-        app:layout_constraintVertical_bias="0.333">
+        app:layout_constraintVertical_bias="0.0">
 
         <Button
             android:id="@+id/opcion7Button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
             android:background="@color/azul_cielo"
             android:textColor="@color/black"
             android:text="Opción 7" />
